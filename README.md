@@ -1,12 +1,20 @@
-# Plant Leaf Disease Classification Pipeline
+# Plant Leaf Image Classification Using SAM and Vision Transformers
 
-This repository implements the pipeline described in **CSCI_566_Final_Project_Report.pdf**, combining the Segment Anything Model (SAM) with Vision Transformer (ViT) and ResNet50 to detect plant leaf diseases.
+This repository provides a robust, modular pipeline for plant leaf disease detection using state-of-the-art deep learning and segmentation models. It combines the Segment Anything Model (SAM) for precise leaf segmentation with Vision Transformer (ViT) and ResNet50 for accurate disease classification.
 
 ## Features
-- **SAM Segmentation**: Isolates disease-relevant regions to remove background noise.
-- **Dual-Model Training**: Fine-tunes both ViT and ResNet50 on original and SAM-segmented datasets.
-- **Data Augmentation**: Applies rotations, flips, and Gaussian blur to improve robustness.
-- **Evaluation Metrics**: Reports accuracy, F1-score, precision, recall, ROC-AUC, and robustness under noise.
+- **Automatic Segmentation:** Uses SAM to isolate plant leaves and remove background noise.
+- **Dual-Model Training:** Fine-tunes both ViT and ResNet50 on original and segmented datasets.
+- **Data Augmentation:** Applies rotations, flips, and Gaussian blur for improved robustness.
+- **Comprehensive Evaluation:** Reports accuracy, F1-score, precision, recall, ROC-AUC, and robustness under noise.
+
+## About
+This project is designed for real-world agricultural applications and research. It is modular, extensible, and ready for production or further research in plant disease detection and computer vision.
+
+## Authors
+- **Rongyi Shen** ([rongyish@usc.edu](mailto:rongyish@usc.edu))
+- **Xiao Bai** ([xiaobai@usc.edu](mailto:xiaobai@usc.edu))
+- **Wenjing Huang** ([whuang08@usc.edu](mailto:whuang08@usc.edu))
 
 ## Quick Start
 
@@ -16,26 +24,36 @@ This repository implements the pipeline described in **CSCI_566_Final_Project_Re
    ```
 
 2. **Prepare data**
-   - Place the PlantVillage dataset under `data/plant_village/`, organized into class subfolders.
+   - Place your PlantVillage dataset under `data/plant_village/`, organized into class subfolders.
 
 3. **Run the pipeline**
    ```bash
    python main.py
    ```
-   This will:
-   - Preprocess images and split into train/test sets
-   - Generate SAM-segmented images in `data/sam_segmented/`
-   - Fine-tune ViT and ResNet50 in two stages
-   - Evaluate and save metrics and ROC plots under `outputs/`
 
 ## Configuration
-Modify `config.py` to adjust:
+Edit `config.py` to adjust:
 - Paths (`DATA_DIR`, `SAM_OUTPUT_DIR`)
 - Hyperparameters (`BATCH_SIZE`, `IMG_SIZE`, `LR`, `EPOCHS`)
 
-## Results & Report
-See **CSCI_566_Final_Project_Report.pdf** for detailed methodology, quantitative results, and discussion.
+---
 
-## License & Citation
-If you use this work, please cite:
-> Shen, R., Bai, X., & Huang, W. (2025). *Plant Leaf Image Classification Using SAM-Based Segmentation with Vision Transformers and ResNet Architectures*. CSCI 566 Final Project Report. 
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Team
+- Rongyi Shen
+- Xiao Bai
+- Wenjing Huang
+
+## 🙏 Acknowledgments
+- The PlantVillage dataset and the open-source community for providing valuable resources.
+- The developers of [Segment Anything Model (SAM)](https://github.com/facebookresearch/segment-anything), [HuggingFace Transformers](https://huggingface.co/docs/transformers/index), and [PyTorch](https://pytorch.org/).
+- Inspiration from recent advances in computer vision and plant pathology research.
+
+## 📞 Support
+For questions or support, please contact the development team via the emails above or create an issue in the repository.
+
+---
+
+Built with ❤️ for real-world impact in plant disease detection and computer vision. 
