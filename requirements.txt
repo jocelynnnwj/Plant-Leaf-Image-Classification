@@ -1,0 +1,8 @@
+torch
+torchvision
+transformers
+albumentations
+scikit-learn
+sam-model  # placeholder for SAM library
+Pillow
+tqdm 
