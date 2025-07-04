@@ -36,24 +36,13 @@ Edit `config.py` to adjust:
 - Paths (`DATA_DIR`, `SAM_OUTPUT_DIR`)
 - Hyperparameters (`BATCH_SIZE`, `IMG_SIZE`, `LR`, `EPOCHS`)
 
----
-
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Team
-- Rongyi Shen
-- Xiao Bai
-- Wenjing Huang
-
-## 🙏 Acknowledgments
+## Acknowledgments
 - The PlantVillage dataset and the open-source community for providing valuable resources.
 - The developers of [Segment Anything Model (SAM)](https://github.com/facebookresearch/segment-anything), [HuggingFace Transformers](https://huggingface.co/docs/transformers/index), and [PyTorch](https://pytorch.org/).
 - Inspiration from recent advances in computer vision and plant pathology research.
 
-## 📞 Support
-For questions or support, please contact the development team via the emails above or create an issue in the repository.
-
----
-
-Built with ❤️ for real-world impact in plant disease detection and computer vision. 
+## Support
+For questions or support, please contact the authors via the emails above or create an issue in the repository. 
