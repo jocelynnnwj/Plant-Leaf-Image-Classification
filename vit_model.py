@@ -1,13 +1,23 @@
 """
 Load and fine-tune Vision Transformer
 """
-from transformers import ViTForImageClassification, ViTFeatureExtractor
+from transformers import ViTForImageClassification, ViTImageProcessor
 import torch
+import os
 
 class ViTClassifier:
-    def __init__(self, num_classes, device='cpu'):
+    def __init__(self, categories, device='cpu'):
+        self.categories = categories
+        self.num_classes = len(categories)
+        self.id2label = {i: label for i, label in enumerate(categories)}
+        self.label2id = {label: i for i, label in enumerate(categories)}
         self.model = ViTForImageClassification.from_pretrained(
-            'google/vit-base-patch16-224', num_labels=num_classes)
+            'google/vit-base-patch16-224-in21k',
+            num_labels=self.num_classes,
+            id2label=self.id2label,
+            label2id=self.label2id
+        )
+        self.processor = ViTImageProcessor.from_pretrained('google/vit-base-patch16-224-in21k')
         self.device = device
         self.model.to(self.device)
 
@@ -38,10 +48,14 @@ class ViTClassifier:
         return preds, trues
 
     def save(self, path):
-        torch.save(self.model.state_dict(), path)
+        os.makedirs(path, exist_ok=True)
+        self.model.save_pretrained(path)
+        self.processor.save_pretrained(path)
 
     def load(self, path):
-        self.model.load_state_dict(torch.load(path, map_location=self.device))
+        self.model = ViTForImageClassification.from_pretrained(path)
+        self.processor = ViTImageProcessor.from_pretrained(path)
+        self.model.to(self.device)
 
     def forward(self, x):
         return self.model(x) 
