@@ -4,6 +4,16 @@ This repository provides a robust, modular pipeline for plant leaf disease detec
 
 ---
 
+## Project Report & Presentation
+
+- **[Final Project Report (PDF)](CSCI_566_Final_Project_Report.pdf):**  
+  Detailed description of the project's motivation, methodology, experiments, results, and conclusions.
+
+- **[Presentation Slides (PDF)](Presentation%20slides.pdf):**  
+  Concise summary of the project, including key figures and findings, suitable for quick review.
+
+---
+
 ## Project Overview
 
 This project demonstrates a professional, reproducible workflow for plant disease classification, suitable for both research and real-world deployment. The pipeline includes:
